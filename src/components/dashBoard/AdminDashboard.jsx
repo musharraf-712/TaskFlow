@@ -1,14 +1,17 @@
+import { useContext } from "react"
 import AllTask from "../others/AllTask"
 import CreateTask from "../others/CreateTask"
 import Header from "../others/Header"
+import { AuthContext } from "../../context/AuthContext"
 
-function AdminDashboard(){
-    
+function AdminDashboard({setUser}){
+   const {employees}=  useContext(AuthContext)
+
 return(
     <>
-        <Header/>
+        <Header setUser={setUser}/>
         <CreateTask/>
-        <AllTask/>
+        <AllTask employeesData={employees}/>
     </>
 )
    
